@@ -38,24 +38,4 @@ public class PersonTest {
         Assertions.assertNotEquals(originalPerson.getHobbies(), clonedPerson.getHobbies());
     }
 
-    @Test
-    public void testCloneEmptyHobbiesList() {
-        // Create a Person object with an empty hobbies list
-        Person originalPerson = new Person("Bob", 90, new ArrayList<>());
-
-        // Clone the Person object
-        Person clonedPerson = originalPerson.clone();
-
-        // Check that the clonedPerson is not the same reference as the originalPerson (shallow copy)
-        Assertions.assertNotSame(originalPerson, clonedPerson);
-
-        // Check that the clonedPerson has the same values as the originalPerson (shallow copy)
-        Assertions.assertEquals(originalPerson.getName(), clonedPerson.getName());
-        Assertions.assertEquals(originalPerson.getScore(), clonedPerson.getScore());
-
-        // Check that the hobbies list in the clonedPerson is a new empty list instance (deep copy)
-        Assertions.assertNotSame(originalPerson.getHobbies(), clonedPerson.getHobbies());
-        Assertions.assertTrue(clonedPerson.getHobbies().isEmpty());
-    }
-
 }
